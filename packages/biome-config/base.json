@@ -3,7 +3,7 @@
   "root": false,
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": { "ignoreUnknown": false },
-  "formatter": { "enabled": true, "indentStyle": "tab" },
+  "formatter": { "enabled": true, "indentStyle": "space" },
   "linter": {
     "enabled": true,
     "rules": {
@@ -86,7 +86,7 @@
     },
     "includes": ["**", "!dist/**"]
   },
-  "javascript": { "formatter": { "quoteStyle": "double" }, "globals": [] },
+  "javascript": { "formatter": { "quoteStyle": "single" }, "globals": [] },
   "overrides": [
     {
       "includes": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],

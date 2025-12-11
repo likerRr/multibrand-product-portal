@@ -6,7 +6,7 @@
     "ignoreUnknown": true,
     "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
   },
-  "formatter": { "enabled": true, "indentStyle": "tab" },
+  "formatter": { "enabled": true, "indentStyle": "space" },
   "linter": {
     "enabled": true,
     "rules": {
@@ -33,7 +33,7 @@
     "includes": ["**", "!.next/**", "!out/**", "!build/**", "!next-env.d.ts"]
   },
   "javascript": {
-    "formatter": { "quoteStyle": "double" },
+    "formatter": { "quoteStyle": "single" },
     "globals": [
       "onnotificationclose",
       "onbackgroundfetchfail",
