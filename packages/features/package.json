@@ -1,10 +1,9 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/features",
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx",
-    "./card": "./src/card/index.ts"
+    "./product-card": "./src/product-card/index.ts"
   },
   "scripts": {
     "lint": "biome check --write",
@@ -22,6 +21,7 @@
   },
   "dependencies": {
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "@repo/ui": "workspace:*"
   }
 }
