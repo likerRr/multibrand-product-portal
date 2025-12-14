@@ -29,6 +29,9 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      '@repo/widgets':
+        specifier: workspace:*
+        version: link:../../packages/widgets
       next:
         specifier: ^16.0.7
         version: 16.0.7(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -144,6 +147,43 @@ importers:
 
   packages/ui:
     dependencies:
+      react:
+        specifier: ^19.2.0
+        version: 19.2.0
+      react-dom:
+        specifier: ^19.2.0
+        version: 19.2.0(react@19.2.0)
+    devDependencies:
+      '@repo/biome-config':
+        specifier: workspace:^
+        version: link:../biome-config
+      '@repo/types':
+        specifier: workspace:*
+        version: link:../types
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
+      '@types/react':
+        specifier: 19.2.2
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: 19.2.2
+        version: 19.2.2(@types/react@19.2.2)
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+
+  packages/widgets:
+    dependencies:
+      '@repo/features':
+        specifier: workspace:*
+        version: link:../features
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../ui
       react:
         specifier: ^19.2.0
         version: 19.2.0

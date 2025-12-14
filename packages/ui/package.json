@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx",
-    "./card": "./src/card/index.ts"
+    "./*": [
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ]
   },
   "scripts": {
     "lint": "biome check --write",

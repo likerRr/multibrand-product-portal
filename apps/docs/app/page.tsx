@@ -1,5 +1,5 @@
-import { ProductCard } from '@repo/features/product-card';
 import { Button } from '@repo/ui/button';
+import { ProductCard } from '@repo/widgets/product-card';
 import Image, { type ImageProps } from 'next/image';
 import styles from './page.module.css';
 
