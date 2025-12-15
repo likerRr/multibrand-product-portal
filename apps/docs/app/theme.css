@@ -1,0 +1,6 @@
+/* Override default theme */
+@layer theme {
+  :root {
+    --background: oklch(0.667 0.228 309.16 / 0.46);
+  }
+}

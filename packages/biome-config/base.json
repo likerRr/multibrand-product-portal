@@ -92,6 +92,11 @@
     "includes": ["**", "!dist/**"]
   },
   "javascript": { "formatter": { "quoteStyle": "single" }, "globals": [] },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "overrides": [
     {
       "includes": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
+    "./styles.css": "./src/index.css",
     "./product-card": "./src/product-card/index.ts"
   },
   "scripts": {
@@ -12,17 +13,19 @@
   },
   "devDependencies": {
     "@repo/biome-config": "workspace:^",
-    "@repo/typescript-config": "workspace:*",
     "@repo/types": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "tailwindcss": "^4.1.18",
     "typescript": "5.9.2"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "@repo/features": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@repo/features": "workspace:*"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   }
 }
