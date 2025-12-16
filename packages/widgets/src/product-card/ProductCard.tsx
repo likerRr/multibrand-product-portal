@@ -1,6 +1,6 @@
 'use client';
 
-import type { Product } from '@repo/types/entities';
+import type { Product } from '@repo/entities/product';
 import { Button } from '@repo/ui/button';
 import type { FC } from 'react';
 import { useProductCardContext } from './context';

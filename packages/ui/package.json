@@ -17,7 +17,6 @@
   "devDependencies": {
     "@repo/biome-config": "workspace:^",
     "@repo/typescript-config": "workspace:*",
-    "@repo/types": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:"
   },

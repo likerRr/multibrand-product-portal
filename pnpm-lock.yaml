@@ -114,9 +114,6 @@ importers:
       '@repo/biome-config':
         specifier: workspace:^
         version: link:../biome-config
-      '@repo/types':
-        specifier: workspace:*
-        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -129,6 +126,9 @@ importers:
 
   packages/features:
     dependencies:
+      '@repo/entities':
+        specifier: workspace:*
+        version: link:../entities
       '@repo/ui':
         specifier: workspace:*
         version: link:../ui
@@ -145,9 +145,6 @@ importers:
       '@repo/biome-config':
         specifier: workspace:^
         version: link:../biome-config
-      '@repo/types':
-        specifier: workspace:*
-        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -179,9 +176,6 @@ importers:
       '@repo/biome-config':
         specifier: workspace:^
         version: link:../biome-config
-      '@repo/types':
-        specifier: workspace:*
-        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -211,12 +205,6 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18
 
-  packages/types:
-    devDependencies:
-      '@repo/biome-config':
-        specifier: workspace:^
-        version: link:../biome-config
-
   packages/typescript-config: {}
 
   packages/ui:
@@ -234,9 +222,6 @@ importers:
       '@repo/biome-config':
         specifier: workspace:^
         version: link:../biome-config
-      '@repo/types':
-        specifier: workspace:*
-        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -249,6 +234,9 @@ importers:
 
   packages/widgets:
     dependencies:
+      '@repo/entities':
+        specifier: workspace:*
+        version: link:../entities
       '@repo/features':
         specifier: workspace:*
         version: link:../features
@@ -268,9 +256,6 @@ importers:
       '@repo/biome-config':
         specifier: workspace:^
         version: link:../biome-config
-      '@repo/types':
-        specifier: workspace:*
-        version: link:../types
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config

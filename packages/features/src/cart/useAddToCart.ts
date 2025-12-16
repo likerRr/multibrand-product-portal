@@ -1,4 +1,4 @@
-import type { Product } from '@repo/types/entities';
+import type { Product } from '@repo/entities/product';
 
 export const useAddToCart = () => {
   return (product: Product) => {

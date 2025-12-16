@@ -1,4 +1,4 @@
-import type { Product } from '@repo/types/entities';
+import type { Product } from '@repo/entities/product';
 import type { ComponentType } from 'react';
 
 export type ProductCardHandlers = {
