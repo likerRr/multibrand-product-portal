@@ -1,0 +1,22 @@
+{
+  "name": "@repo/infra",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "lint": "biome check --write",
+    "generate:component": "turbo gen react-component",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/biome-config": "workspace:^",
+    "@repo/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "@repo/entities": "workspace:*",
+    "@vercel/functions": "^3.3.4",
+    "next": "catalog:"
+  }
+}
