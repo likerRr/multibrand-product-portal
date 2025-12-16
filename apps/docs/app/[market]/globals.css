@@ -1,5 +1,5 @@
 @import "@repo/tailwind-config/theme";
-@import "./theme.css";
+@import "../theme.css";
 @import "@repo/widgets/styles.css";
 
 @layer components {

@@ -25,8 +25,8 @@ export const DEFAULT_MARKET_CODE: MarketCode = 'en';
 
 export const DEFAULT_MARKET: Market = MARKET[DEFAULT_MARKET_CODE];
 
-export const isValidMarket = (market: string): market is MarketCode => {
-  return MARKET_CODES.includes(market as MarketCode);
+export const isValidMarket = (marketCode: string): marketCode is MarketCode => {
+  return MARKET_CODES.includes(marketCode as MarketCode);
 };
 
 export const getMarketConfig = (market: MarketCode): Market => {
