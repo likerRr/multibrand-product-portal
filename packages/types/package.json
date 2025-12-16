@@ -10,7 +10,6 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/biome-config": "workspace:^",
-    "typescript": "catalog:"
+    "@repo/biome-config": "workspace:^"
   }
 }

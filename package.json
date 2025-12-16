@@ -10,8 +10,10 @@
     "workspace:create": "turbo gen workspace --copy"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.8",
     "turbo": "^2.6.3",
-    "@types/node": "catalog:"
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.26.0",
   "engines": {
