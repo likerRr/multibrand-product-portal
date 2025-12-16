@@ -24,5 +24,8 @@ export function proxy(request: NextRequest) {
     MARKET_CODES.find((code) => getMarketConfig(code).country === country) ||
     DEFAULT_MARKET.code;
 
-  return NextResponse.redirect(new URL(`/${marketCode}`, request.url));
+  // Avoiding redirects for better SEO
+  return NextResponse.rewrite(
+    new URL(`/${marketCode}${pathname}`, request.url),
+  );
 }
