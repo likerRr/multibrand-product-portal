@@ -1,4 +1,5 @@
 import { isValidMarket, type MarketCode } from '@repo/entities/market';
+import type { BrandConfig } from '../app/providers/brand';
 
 export const CONTENT: Record<
   MarketCode,
@@ -8,7 +9,7 @@ export const CONTENT: Record<
   }
 > = {
   en: {
-    title: 'Welcome to Project A',
+    title: 'Welcome to %project%',
     description: 'Discover our amazing products',
   },
   ca: {
@@ -17,7 +18,10 @@ export const CONTENT: Record<
   },
 };
 
-export const getMarketMetadata = (marketCode: string) => {
+export const getMarketMetadata = (
+  marketCode: string,
+  brandConfig: BrandConfig,
+) => {
   if (!isValidMarket(marketCode)) {
     return {
       title: 'Market Not Found',
@@ -28,7 +32,7 @@ export const getMarketMetadata = (marketCode: string) => {
   const content = CONTENT[marketCode];
 
   return {
-    title: content.title,
+    title: content.title.replace('%project%', brandConfig.name),
     description: content.description,
   };
 };

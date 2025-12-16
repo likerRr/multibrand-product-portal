@@ -1,3 +1,6 @@
+/* Override components styles */
+@import "./components/product-card.css";
+
 /* Override default theme */
 @layer theme {
   :root {

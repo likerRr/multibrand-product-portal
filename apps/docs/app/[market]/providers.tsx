@@ -1,8 +1,9 @@
 'use client';
 
-import { ProductCardProvider } from '@repo/widgets/product-card';
+import { BrandProvider } from '@repo/infra/app/providers/brand';
 import type { FC, PropsWithChildren } from 'react';
+import { brandConfig } from '../config/brandConfig';
 
 export const Providers: FC<PropsWithChildren> = ({ children }) => {
-  return <ProductCardProvider>{children}</ProductCardProvider>;
+  return <BrandProvider config={brandConfig}>{children}</BrandProvider>;
 };

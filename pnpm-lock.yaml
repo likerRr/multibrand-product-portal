@@ -163,12 +163,24 @@ importers:
       '@repo/entities':
         specifier: workspace:*
         version: link:../entities
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.7
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.2.3(@types/react@19.2.7)
       '@vercel/functions':
         specifier: ^3.3.4
         version: 3.3.4
       next:
         specifier: 'catalog:'
         version: 16.0.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      react:
+        specifier: 'catalog:'
+        version: 19.2.3
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.3(react@19.2.3)
     devDependencies:
       '@repo/biome-config':
         specifier: workspace:^
