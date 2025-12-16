@@ -1,9 +1,9 @@
 {
-  "name": "@repo/features",
+  "name": "@repo/shared",
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*/index.ts"
+    "./*": "./src/*.ts"
   },
   "scripts": {
     "lint": "biome check --write",
@@ -12,17 +12,18 @@
   },
   "devDependencies": {
     "@repo/biome-config": "workspace:^",
-    "@repo/typescript-config": "workspace:*",
     "@repo/types": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "typescript": "catalog:"
   },
   "dependencies": {
+    "@repo/ui": "workspace:*",
+    "@vercel/functions": "^3.3.4",
     "next": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:",
-    "@repo/ui": "workspace:*"
+    "react-dom": "catalog:"
   }
 }
