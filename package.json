@@ -10,7 +10,8 @@
     "workspace:create": "turbo gen workspace --copy"
   },
   "devDependencies": {
-    "turbo": "^2.6.3"
+    "turbo": "^2.6.3",
+    "@types/node": "catalog:"
   },
   "packageManager": "pnpm@10.26.0",
   "engines": {
