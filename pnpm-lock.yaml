@@ -6,9 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@types/node':
-      specifier: ^24.10.4
-      version: 24.10.4
     '@types/react':
       specifier: ^19.2.3
       version: 19.2.7
@@ -24,9 +21,6 @@ catalogs:
     react-dom:
       specifier: ^19.2.3
       version: 19.2.3
-    typescript:
-      specifier: ^5.9.2
-      version: 5.9.2
 
 importers:
 
@@ -36,13 +30,13 @@ importers:
         specifier: 2.3.8
         version: 2.3.8
       '@types/node':
-        specifier: 'catalog:'
+        specifier: ^24.10.4
         version: 24.10.4
       turbo:
         specifier: ^2.6.3
         version: 2.6.3
       typescript:
-        specifier: 'catalog:'
+        specifier: ^5.9.2
         version: 5.9.2
 
   apps/docs:
