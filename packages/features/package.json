@@ -21,6 +21,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "@repo/entities": "workspace:*",
+    "@repo/shared": "workspace:*",
     "@repo/ui": "workspace:*"
   }
 }

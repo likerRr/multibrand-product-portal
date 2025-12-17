@@ -1,10 +1,10 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import type { FC, PropsWithChildren } from 'react';
 
-const variants = cva(['max-w-4xl'], {
+const variants = cva(['max-w-4xl py-4'], {
   variants: {
     centered: {
-      true: ['mx-auto py-4'],
+      true: ['mx-auto'],
     },
   },
   defaultVariants: {
