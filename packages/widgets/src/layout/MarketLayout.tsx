@@ -1,7 +1,7 @@
 'use client';
 
+import { MarketLink } from '@repo/entities/market';
 import { useBrand } from '@repo/infra/app/providers/brand';
-import Link from 'next/link';
 import type { FC, PropsWithChildren } from 'react';
 
 export const MarketLayout: FC<PropsWithChildren> = ({ children }) => {
@@ -17,8 +17,8 @@ export const MarketLayout: FC<PropsWithChildren> = ({ children }) => {
             </h2>
 
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="/">Welcome</Link>
-              <Link href="/products">Products</Link>
+              <MarketLink href="/">Welcome</MarketLink>
+              <MarketLink href="/products">Products</MarketLink>
             </nav>
           </div>
         </header>
