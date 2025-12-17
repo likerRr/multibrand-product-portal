@@ -5,6 +5,8 @@
   "exports": {
     "./feature-item": "./src/feature-item/index.ts",
     "./container": "./src/container/index.ts",
+    "./page-header": "./src/page-header/index.ts",
+    "./page-layout": "./src/page-layout/index.ts",
     "./*": "./src/*.tsx"
   },
   "scripts": {

@@ -4,10 +4,7 @@
   "private": true,
   "exports": {
     "./styles.css": "./src/index.css",
-    "./product-card": "./src/product-card/index.ts",
-    "./welcome-hero": "./src/welcome-hero/index.ts",
-    "./feature-grid": "./src/feature-grid/index.ts",
-    "./layout": "./src/layout/index.ts"
+    "./*": "./src/*/index.ts"
   },
   "scripts": {
     "lint": "biome check --write",
