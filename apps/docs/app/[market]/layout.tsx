@@ -1,4 +1,5 @@
 import { getMarketConfig, isValidMarket } from '@repo/entities/market';
+import { MarketLayout } from '@repo/widgets/layout';
 import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { brandConfig } from '../config/brandConfig';
@@ -33,7 +34,9 @@ export default async function RootLayout({
   return (
     <html lang={marketConfig.locale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers marketConfig={marketConfig}>{children}</Providers>
+        <Providers marketConfig={marketConfig}>
+          <MarketLayout>{children}</MarketLayout>
+        </Providers>
       </body>
     </html>
   );

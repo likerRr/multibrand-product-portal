@@ -10,16 +10,14 @@ type ContextValue = {
   handlers: ProductCardHandlers;
 };
 
-export const ProductCardContext = createContext<ContextValue | undefined>(
-  undefined,
-);
+const ProductCardContext = createContext<ContextValue | undefined>(undefined);
 
 export const useProductCardContext = () => {
   const ctx = use(ProductCardContext);
 
   if (!ctx) {
     throw new Error(
-      `${useProductCardContext.name} must be used within ProductCardProvider`,
+      `${useProductCardContext.name} must be used within ${ProductCardProvider.name}`,
     );
   }
 

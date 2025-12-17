@@ -4,6 +4,8 @@
 /* Override default theme */
 @layer theme {
   :root {
-    --background: oklch(0.667 0.228 309.16 / 0.46);
+    --primary: #059669;
+    --primary-foreground: #ffffff;
+    --radius: 0rem;
   }
 }

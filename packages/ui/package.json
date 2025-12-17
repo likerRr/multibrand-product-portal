@@ -3,11 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./styles-source": "./src/",
-    "./*": [
-      "./src/*.tsx",
-      "./src/*/index.ts"
-    ]
+    "./feature-item": "./src/feature-item/index.ts",
+    "./*": "./src/*.tsx"
   },
   "scripts": {
     "lint": "biome check --write",
