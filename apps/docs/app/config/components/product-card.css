@@ -1,7 +1,6 @@
 @layer components {
   /* override widget styles */
-  .product-card__button {
-    color: var(--color-primary-foreground);
-    background-color: var(--color-primary);
+  .product-card__add-to-cart-button {
+    --color-accent: green;
   }
 }
