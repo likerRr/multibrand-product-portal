@@ -33,7 +33,7 @@ export default async function RootLayout({
   return (
     <html lang={marketConfig.locale}>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers>{children}</Providers>
+        <Providers marketConfig={marketConfig}>{children}</Providers>
       </body>
     </html>
   );
