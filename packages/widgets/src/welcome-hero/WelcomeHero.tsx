@@ -8,7 +8,7 @@ export const WelcomeHero = () => {
   const { name: marketName } = useMarket();
 
   return (
-    <>
+    <div className="text-center">
       <div className="inline-block mb-6 p-1 rounded-full bg-opacity-10 bg-primary">
         <span className="text-6xl">🌍</span>
       </div>
@@ -20,6 +20,6 @@ export const WelcomeHero = () => {
       <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
         Explore our exclusive collection tailored for the {marketName} market.
       </p>
-    </>
+    </div>
   );
 };

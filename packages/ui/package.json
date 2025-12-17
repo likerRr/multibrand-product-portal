@@ -4,6 +4,7 @@
   "private": true,
   "exports": {
     "./feature-item": "./src/feature-item/index.ts",
+    "./container": "./src/container/index.ts",
     "./*": "./src/*.tsx"
   },
   "scripts": {
@@ -20,6 +21,7 @@
   "dependencies": {
     "next": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "class-variance-authority": "catalog:"
   }
 }
