@@ -3,25 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.ts"
+    "./*": "./src/*/index.ts"
   },
   "scripts": {
     "lint": "biome check --write",
-    "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
     "@repo/biome-config": "workspace:^",
-    "@repo/types": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:"
+    "@repo/typescript-config": "workspace:*"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
-    "@vercel/functions": "^3.3.4",
-    "next": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "ky": "^1.14.1",
+    "next": "catalog:"
   }
 }
