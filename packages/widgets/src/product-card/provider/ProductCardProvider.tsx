@@ -1,28 +1,10 @@
 'use client';
 
-import { createContext, type PropsWithChildren, use } from 'react';
-import type { ProductCardConfig, ProductCardHandlers } from './types';
+import { type PropsWithChildren } from 'react';
+import type { ProductCardConfig, ProductCardHandlers } from '../types';
+import { ProductCardContext } from './ProductCardContext';
 import { useProductCardConfig } from './useProductCardConfig';
 import { useProductCardHandlers } from './useProductCardHandlers';
-
-type ContextValue = {
-  config: ProductCardConfig;
-  handlers: ProductCardHandlers;
-};
-
-const ProductCardContext = createContext<ContextValue | undefined>(undefined);
-
-export const useProductCardContext = () => {
-  const ctx = use(ProductCardContext);
-
-  if (!ctx) {
-    throw new Error(
-      `${useProductCardContext.name} must be used within ${ProductCardProvider.name}`,
-    );
-  }
-
-  return ctx;
-};
 
 interface ContextValueOverrides {
   getConfigOverrides?: (config: ProductCardConfig) => ProductCardConfig;

@@ -1,31 +1,40 @@
-import type { Product } from '@repo/entities/product';
 import type { ComponentType } from 'react';
 
 export type ProductCardHandlers = {
-  onAddToCart: (product: Product) => void;
-  onViewDetails?: (product: Product) => void;
+  onAddToCart: (product: ProductItem) => void;
+  onViewDetails: (product: ProductItem) => void;
 };
 
 export type ProductCardConfig = {
   layout?: 'vertical' | 'horizontal';
   showTags?: boolean;
-  thumbnailsCount?: number;
+  thumbnailsCount: number;
+  titlePosition: 'top' | 'bottom';
   className?: string;
-  // allow partial renderer overrides
-  renderers?: {
-    Title?: ComponentType<{
-      product: Product;
-    }>;
-    Tags?: ComponentType<{
-      product: Product;
-    }>;
-    Thumbnails?: ComponentType<{
-      product: Product;
-      count: number;
-    }>;
-    Actions?: ComponentType<{
-      product: Product;
-      handlers: ProductCardHandlers;
+  addToCard: {
+    title: string;
+    className?: string;
+  };
+  slots?: {
+    AddToCartButton?: ComponentType<{
+      product: ProductItem;
     }>;
   };
 };
+
+export interface ProductItem {
+  id: number;
+  title: string;
+  images: {
+    id: string;
+    src: string;
+    title: string;
+  }[];
+  tags: {
+    id: string;
+    title: string;
+  }[];
+  rating: number;
+  description: string;
+  price: string;
+}

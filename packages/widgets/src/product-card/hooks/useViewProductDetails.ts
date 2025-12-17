@@ -1,7 +1,7 @@
-import type { Product } from '@repo/entities/product';
+import type { ProductItem } from '../types';
 
 export const useViewProductDetails = () => {
-  return (product: Product) => {
+  return (product: ProductItem) => {
     console.log(`Viewing details for product ${product}.`);
   };
 };
