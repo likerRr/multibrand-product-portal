@@ -1,4 +1,5 @@
 import type { Product } from '@repo/entities/product';
+import { makeSlug } from '@repo/shared/utils';
 import type { ProductItem } from './types';
 
 export const selectProductItem = (product: Product): ProductItem => {
@@ -17,5 +18,6 @@ export const selectProductItem = (product: Product): ProductItem => {
     rating: product.rating,
     description: product.description,
     price: product.price.toFixed(2),
+    slug: makeSlug(product),
   };
 };

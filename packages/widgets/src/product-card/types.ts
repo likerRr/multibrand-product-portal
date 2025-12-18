@@ -37,4 +37,5 @@ export interface ProductItem {
   rating: number;
   description: string;
   price: string;
+  slug: string;
 }

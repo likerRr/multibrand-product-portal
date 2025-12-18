@@ -1,7 +1,15 @@
+'use client';
+
+import { useMarket } from '@repo/entities/market';
+import { useRouter } from 'next/navigation';
 import type { ProductItem } from '../types';
 
 export const useViewProductDetails = () => {
+  const router = useRouter();
+  const { code } = useMarket();
+
   return (product: ProductItem) => {
-    console.log(`Viewing details for product ${product}.`);
+    // it's a bad pattern, just for demo purposes on how to use app-wide hooks in handlers
+    return router.push(`/${code}/products/${product.slug}`);
   };
 };
