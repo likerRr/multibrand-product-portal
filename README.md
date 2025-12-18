@@ -1,139 +1,121 @@
-# Turborepo starter
+# Multibrand Product Portal
 
-This Turborepo starter is maintained by the Turborepo core team.
+This is a scalable, modular monorepo application built with **Next.js 16**, **React 19**, and **Turborepo**. It is designed to support multiple white-label brands (e.g., `green`, `red`) sharing a common codebase while maintaining distinct styles and business logic.
 
-## Using this example
+### Features
 
-Run the following command:
+- [Biome](https://biomejs.dev/) for code linting and formatting
+- `Tailwind` for styling
 
-```sh
-npx create-turbo@latest
+## 📋 Prerequisites
+
+To run this project, ensure your environment matches the specific versions defined in `package.json` engines.
+
+*   **Node.js**: v24+ (LTS)
+*   **pnpm**: v10.26.0
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+Install all packages across the workspace:
+
+```bash
+pnpm install
 ```
 
-## What's inside?
+### 2. Environment Setup
+Configure environment variables for the applications. You need to create `.env` files for each app based on the provided example.
 
-This Turborepo includes the following packages/apps:
+```bash
+# Example for the 'green' app
+cp apps/green/.env.example apps/green/.env
 
-### Apps and Packages
+# Repeat for other apps (e.g., 'red')
+cp apps/red/.env.example apps/red/.env
+```
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+*Open the `.env` files and fill in the required values, e.g.:*
+
+```dotenv
+NEXT_PUBLIC_API_URL=https://dummyjson.com
+```
+
+## 🛠️ Development
+
+You can run applications individually or all at once.
+
+| Action | Command | Description |
+| :--- | :--- | :--- |
+| **Run All Apps** | `pnpm dev` | Starts all applications in parallel |
+| **Run Specific App** | `pnpm dev --filter=green` | Starts only the `green` app |
+| **Run Another App** | `pnpm dev --filter=red` | Starts only the `red` app |
+
+## 📦 Production
+
+To build and start the applications in production mode:
+
+```bash
+# 1. Build all apps and packages
+pnpm build
+
+# 2. Start a specific app (e.g., green)
+pnpm start --filter=green
+```
+
+## 🧩 Package Management
+
+This monorepo uses **pnpm workspaces** and the **Catalogs** feature (defined in `pnpm-workspace.yaml`) for dependency version management.
+
+### Adding a dependency
+To add a library (e.g., `ky`) to a shared package:
+
+```bash
+pnpm add ky --filter=@repo/shared
+```
+
+## ✨ Scaffolding (New Brand)
+
+There is a script to quickly bootstrap a new brand application based on existing templates.
+
+```bash
+pnpm run workspace:create
+```
+*Follow the interactive prompts to generate a new application.*
+
+## Apps and Packages
+
+- `green`: a [Next.js](https://nextjs.org/) app
+- `red`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a dumb component library shared by both applications
+- `@repo/widgets`: composite shared sections with customizable business logic
+- `@repo/shared`: shared non-business code
 - `@repo/biome-config`: `biome` configurations
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `@repo/tailwind-config`: `tailwind` config and theme definitions
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## Architecture Decisions & Features
 
-### Utilities
+### 1. Customization Strategy & DRY Principle
+To adhere to the DRY principle while meeting the strict requirement for distinct brand identities, I implemented a multi-layered customization strategy. This project intentionally combines several approaches to demonstrate the flexibility of the architecture:
 
-This Turborepo has some additional tools already setup for you:
+*   **Global Theming:** Brand colors and typography are controlled via CSS variables in `apps/[brand]/config/theme.css`.
+*   **Component Styling:** Specific component overrides are handled via modular CSS, e.g., `apps/[brand]/config/components/product-card.css`.
+*   **Static Configuration:** Feature flags and structural constants are defined in `apps/[brand]/config/brandConfig.ts`.
+*   **Logic Injection (Dependency Injection):** For deep customization (modifying business logic or swapping entire UI slots), I implemented a Provider pattern. See `apps/red/app/[market]/products/providers.tsx`. This allows the "Red" brand to inject different behavior into shared components without polluting the shared code with `if/else` statements.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [Biome](https://biomejs.dev/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+> *Trade-off Note:* for demo purposes, the project utilizes a mix of strategies to showcase the full range of possibilities.
 
-### Build
+### 2. Multi-Market Support
+The application supports seamless routing for different markets (e.g., `/en`, `/ca`).
+*   Implemented a `MarketLink` component (Client Side) that automatically prefixes internal links with the current market locale. This ensures developers don't need to manually concatenate URL strings, reducing routing errors.
 
-To build all apps and packages, run the following command:
+### 3. Caching & Next.js 16 Features (PPR)
+I leveraged the latest Next.js 16 capabilities for performance optimization:
+*   **Partial Prerendering (PPR):** The dynamic product list (`packages/widgets/src/product-list/ProductListAsync.tsx`) uses [**Cache Components**](https://nextjs.org/docs/app/getting-started/cache-components) semantics.
+*   **Revalidation:** The product list is configured to revalidate approximately every 5 minutes. You will see a log message in the server console confirming the data refresh.
+*   **Evolution of approach:** To demonstrate mastery of different Next.js generations, I initially implemented standard **ISR**. You can view this approach in the git history at commit `0fa4005` ("feat: initial ISR implementation"). The final version uses the newer Cache API.
 
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
-
-## Metadata
-
-Metadata defined on page
+### 4. SEO & Metadata
+Implemented a robust metadata generation strategy:
+*   Dynamic generation of Title and Description for both Product List and Product Detail pages.
+*   The metadata generator is aware of the brand context, allowing for brand-specific SEO titles if required (as well as i18n).
