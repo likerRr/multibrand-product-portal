@@ -42,7 +42,7 @@ importers:
         specifier: ^5.9.2
         version: 5.9.2
 
-  apps/docs:
+  apps/red:
     dependencies:
       '@repo/entities':
         specifier: workspace:*
@@ -135,6 +135,9 @@ importers:
       '@repo/entities':
         specifier: workspace:*
         version: link:../entities
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@repo/ui':
         specifier: workspace:*
         version: link:../ui
@@ -193,6 +196,13 @@ importers:
         version: link:../typescript-config
 
   packages/shared:
+    dependencies:
+      ky:
+        specifier: ^1.14.1
+        version: 1.14.1
+      next:
+        specifier: 'catalog:'
+        version: 16.0.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     devDependencies:
       '@repo/biome-config':
         specifier: workspace:^
@@ -261,9 +271,15 @@ importers:
       '@repo/infra':
         specifier: workspace:*
         version: link:../infra
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@repo/ui':
         specifier: workspace:*
         version: link:../ui
+      class-variance-authority:
+        specifier: 'catalog:'
+        version: 0.7.1
       next:
         specifier: 'catalog:'
         version: 16.0.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -716,6 +732,10 @@ packages:
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
+
+  ky@1.14.1:
+    resolution: {integrity: sha512-hYje4L9JCmpEQBtudo+v52X5X8tgWXUYyPcxKSuxQNboqufecl9VMWjGiucAFH060AwPXHZuH+WB2rrqfkmafw==}
+    engines: {node: '>=18'}
 
   lightningcss-android-arm64@1.30.2:
     resolution: {integrity: sha512-BH9sEdOCahSgmkVhBLeU7Hc9DWeZ1Eb6wNS6Da8igvUwAe0sqROHddIlvU06q3WyXVEOYDZ6ykBZQnjTbmo4+A==}
@@ -1233,6 +1253,8 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   jiti@2.6.1: {}
+
+  ky@1.14.1: {}
 
   lightningcss-android-arm64@1.30.2:
     optional: true
