@@ -4,7 +4,7 @@
 /* Override default theme */
 @layer theme {
   :root {
-    --primary: #059669;
+    --primary: #ea2020;
     --primary-foreground: #ffffff;
     --radius: 0rem;
   }

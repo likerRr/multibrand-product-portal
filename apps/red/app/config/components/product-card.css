@@ -1,6 +1,6 @@
 @layer components {
   /* override widget styles */
   .product-card__add-to-cart-button {
-    --color-accent: green;
+    --color-accent: #af1e1e;
   }
 }

@@ -5,22 +5,13 @@ import { useBrand } from '@repo/infra/app/providers/brand';
 import { PageHeader } from '@repo/ui/page-header';
 
 export const BrandHeader = () => {
-  const { name } = useBrand();
+  const { name, ui } = useBrand();
 
   return (
     <PageHeader
       title={name}
       LinkComponent={MarketLink}
-      navLinks={[
-        {
-          href: '/',
-          label: 'Welcome',
-        },
-        {
-          href: '/products',
-          label: 'Products',
-        },
-      ]}
+      navLinks={ui.header.navLinks}
     />
   );
 };
