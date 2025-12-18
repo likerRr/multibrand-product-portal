@@ -2,6 +2,11 @@
 
 This is a scalable, modular monorepo application built with **Next.js 16**, **React 19**, and **Turborepo**. It is designed to support multiple white-label brands (e.g., `green`, `red`) sharing a common codebase while maintaining distinct styles and business logic.
 
+## Demo
+
+- Green: https://multibrand-product-portal-green.vercel.app/
+- Red: https://multibrand-product-portal-red.vercel.app/
+
 ### Features
 
 - [Biome](https://biomejs.dev/) for code linting and formatting
