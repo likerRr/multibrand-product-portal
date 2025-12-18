@@ -1,22 +1,13 @@
 'use client';
 
-import Link, { LinkProps } from 'next/link';
-import { PropsWithChildren } from 'react';
-import { useMarketHref } from '../hooks/useMarketHref';
+import { BrandedLink, BrandedLinkProps } from '@repo/ui/branded-link';
+import { type FC } from 'react';
+import { useMarket } from '../provider';
 
-type Props = PropsWithChildren<
-  Omit<LinkProps, 'href'> & {
-    href: string;
-    className?: string;
-  }
->;
+export interface Props extends BrandedLinkProps {}
 
-export const MarketLink = ({ href, children, ...props }: Props) => {
-  const marketHref = useMarketHref(href);
+export const MarketLink: FC<Props> = (props) => {
+  const { code } = useMarket();
 
-  return (
-    <Link href={marketHref} {...props}>
-      {children}
-    </Link>
-  );
+  return <BrandedLink {...props} prefix={code} />;
 };
