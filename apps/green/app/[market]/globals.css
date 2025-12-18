@@ -1,0 +1,3 @@
+@import "@repo/tailwind-config/theme";
+@import "@repo/widgets/styles.css";
+@import "../config/theme.css";

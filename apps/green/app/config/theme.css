@@ -1,0 +1,11 @@
+/* Override components styles */
+@import "./components/product-card.css";
+
+/* Override default theme */
+@layer theme {
+  :root {
+    --primary: #059669;
+    --primary-foreground: #ffffff;
+    --radius: 0rem;
+  }
+}

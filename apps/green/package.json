@@ -1,0 +1,33 @@
+{
+  "name": "green",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check --write",
+    "check-types": "next typegen && tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/entities": "workspace:*",
+    "@repo/features": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@repo/widgets": "workspace:*",
+    "@repo/infra": "workspace:*",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/biome-config": "workspace:^",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
+  }
+}
