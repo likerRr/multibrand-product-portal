@@ -7,11 +7,6 @@ This is a scalable, modular monorepo application built with **Next.js 16**, **Re
 - Green: https://multibrand-product-portal-green.vercel.app/
 - Red: https://multibrand-product-portal-red.vercel.app/
 
-### Features
-
-- [Biome](https://biomejs.dev/) for code linting and formatting
-- `Tailwind` for styling
-
 ## 📋 Prerequisites
 
 To run this project, ensure your environment matches the specific versions defined in `package.json` engines.
