@@ -13,13 +13,6 @@ export const fetchProducts = async (
 
   const response = await apiClient.get<GetProductsResponseDto>(
     `products?limit=${limit}&skip=${skip}`,
-    {
-      cache: 'force-cache',
-      next: {
-        revalidate: 300,
-        tags: ['products'],
-      },
-    },
   );
 
   if (!response.ok) {

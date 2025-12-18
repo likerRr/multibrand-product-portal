@@ -5,8 +5,6 @@ import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 import { Providers } from './providers';
 
-export const revalidate = 300;
-
 export default async function MarketProductsPage({
   params,
 }: PageProps<'/[market]/products'>) {
