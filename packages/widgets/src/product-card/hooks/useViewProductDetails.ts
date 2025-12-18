@@ -10,6 +10,6 @@ export const useViewProductDetails = () => {
 
   return (product: ProductItem) => {
     // it's a bad pattern, just for demo purposes on how to use app-wide hooks in handlers
-    return router.push(`/${code}/products/${product.slug}`);
+    return router.push(`/${code}/product/${product.slug}`);
   };
 };

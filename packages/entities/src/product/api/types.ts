@@ -9,6 +9,8 @@ export interface GetProductsResponseDto extends PaginationDto {
   products: ProductDto[];
 }
 
+export interface GetProductResponseDto extends ProductDto {}
+
 export interface ProductDto {
   id: number;
   title: string;

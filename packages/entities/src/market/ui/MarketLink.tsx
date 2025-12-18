@@ -7,7 +7,7 @@ import { useMarketHref } from '../hooks/useMarketHref';
 type Props = PropsWithChildren<
   Omit<LinkProps, 'href'> & {
     href: string;
-    className: string;
+    className?: string;
   }
 >;
 

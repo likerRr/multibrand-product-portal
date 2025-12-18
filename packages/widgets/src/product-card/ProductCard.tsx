@@ -56,7 +56,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
             <span className="text-xs text-muted-foreground uppercase">
               Price
             </span>
-            <span className={`text-2xl font-black text-secondary`}>
+            <span className={`text-2xl font-black text-secondary-foreground`}>
               {product.price}
             </span>
           </div>
@@ -65,7 +65,11 @@ export const ProductCard: FC<Props> = ({ product }) => {
             <AddToCartButton product={product} />
           ) : (
             <button
-              onClick={() => handlers.onAddToCart(product)}
+              onClick={(e) => {
+                e.stopPropagation();
+
+                handlers.onAddToCart(product);
+              }}
               className={cx(
                 'px-6 py-3 text-primary-foreground bg-accent font-bold shadow-lg transform active:scale-95 transition-all',
                 config.addToCard.className,
