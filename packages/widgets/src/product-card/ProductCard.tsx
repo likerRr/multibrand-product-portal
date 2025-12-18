@@ -2,7 +2,7 @@
 
 import { cx } from 'class-variance-authority';
 import type { FC } from 'react';
-import { useProductCardContext } from './provider/ProductCardContext';
+import { useProductCardContext } from './provider';
 import type { ProductItem } from './types';
 import { Images } from './ui/Images';
 import { Title } from './ui/Title';
