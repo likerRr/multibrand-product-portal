@@ -33,5 +33,6 @@ const mapResponse = (response: GetProductsResponseDto): Product[] => {
     images: product.images,
     price: product.price,
     rating: product.rating,
+    category: product.category,
   }));
 };

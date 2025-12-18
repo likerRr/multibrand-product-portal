@@ -19,5 +19,6 @@ export const selectProductInfo = (product: Product): ProductInfo => {
     description: product.description,
     price: product.price.toFixed(2),
     slug: makeSlug(product),
+    category: product.category,
   };
 };
