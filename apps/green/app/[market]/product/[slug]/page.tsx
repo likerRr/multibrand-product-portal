@@ -1,8 +1,10 @@
+import { MARKET_CODES } from '@repo/entities/market';
 import { fetchProductBySlug } from '@repo/entities/product';
+import { getProducts } from '@repo/features/product-list';
+import { makeSlug } from '@repo/shared/utils';
 import { Container } from '@repo/ui/container';
 import { ProductDetailsAsync } from '@repo/widgets/product-details';
 import { cacheLife, cacheTag } from 'next/cache';
-import { Suspense } from 'react';
 
 const getMetadata = async (slug: string) => {
   'use cache';
@@ -31,16 +33,34 @@ export async function generateMetadata({
   return getMetadata(slug);
 }
 
+export async function generateStaticParams() {
+  const productsPromise = MARKET_CODES.map(async (market) => {
+    const products = await getProducts({
+      market,
+    });
+
+    return products.map((product) => ({
+      market,
+      slug: makeSlug({
+        id: product.id,
+        title: product.title,
+      }),
+    }));
+  });
+
+  const productsByMarket = await Promise.all(productsPromise);
+
+  return productsByMarket.flat();
+}
+
 export default async function MarketProductPage({
   params,
 }: PageProps<'/[market]/product/[slug]'>) {
+  const { slug } = await params;
+
   return (
     <Container centered>
-      <Suspense fallback={<>loading...</>}>
-        {params.then(({ slug }) => (
-          <ProductDetailsAsync slug={slug} />
-        ))}
-      </Suspense>
+      <ProductDetailsAsync slug={slug} />
     </Container>
   );
 }

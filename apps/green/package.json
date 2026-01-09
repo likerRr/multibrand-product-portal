@@ -16,6 +16,7 @@
     "@repo/ui": "workspace:*",
     "@repo/widgets": "workspace:*",
     "@repo/infra": "workspace:*",
+    "@repo/shared": "workspace:*",
     "next": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"

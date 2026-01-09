@@ -1,5 +1,6 @@
 'use client';
 
+import { useMarket } from '@repo/entities/market';
 import { cx } from 'class-variance-authority';
 import type { FC } from 'react';
 import { useProductCardContext } from './provider';
@@ -12,12 +13,14 @@ interface Props {
 }
 
 export const ProductCard: FC<Props> = ({ product }) => {
+  const { code } = useMarket();
   const { config, handlers } = useProductCardContext();
   const AddToCartButton = config.slots?.AddToCartButton ?? null;
 
   return (
-    <div
+    <a
       onClick={() => handlers.onViewDetails(product)}
+      href={`/${code}/product/${product.slug}`}
       className={`group flex flex-col md:flex-row bg-card text-card-foreground overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-border cursor-pointer`}
     >
       <div className="md:w-1/3 relative h-64 md:h-auto flex">
@@ -80,6 +83,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
